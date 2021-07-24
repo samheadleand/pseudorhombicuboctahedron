@@ -1,12 +1,13 @@
 side_length = 15;
 side_depth = 2;
+eps = .1 * side_depth;
 oct_alter_length = sqrt((side_length*side_length)/2);
 inner_tri_side = ((side_length*sin(60))-side_depth-(side_depth/cos(60)))/sin(60);
 
 module square_face() {
     difference() {
         cube([side_length, side_length, side_depth]);
-        translate([side_depth, side_depth, 0]) cube([side_length-(2*side_depth), side_length-(2*side_depth), side_depth]);
+	translate([side_depth, side_depth, -eps]) cube([side_length-(2*side_depth), side_length-(2*side_depth), side_depth+2*eps]);
         }};
 
 module triangle_face() {
